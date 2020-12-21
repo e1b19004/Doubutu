@@ -45,5 +45,4 @@ AbstractKoma getKomaFromPlace(int x, int y) {
     }
     return null;
   }
-
 }
