@@ -13,8 +13,7 @@ abstract class AbstractKoma {
     this.team = team;
     this.kStat = new KomaStatus(active);
   }
-
-  void draw() {
+void draw() {
     String komaImage = "";
     if (this.team==0 && this.kStat.active) komaImage = this.name+"A.png";
     else if (this.team==1 && this.kStat.active) komaImage = this.name+"B.png";
@@ -29,5 +28,13 @@ abstract class AbstractKoma {
   void drawSelected() {
     fill(#FF0000, SQUARESIZE);
     rect(this.x*SQUARESIZE, this.y*SQUARESIZE, SQUARESIZE, SQUARESIZE);
+  }
+  void move(int toX, int toY) {
+    this.updatePos(toX, toY);
+  }
+  void updatePos(int toX, int toY) {
+    this.x=toX;
+    this.y=toY;
+    gs.turn = (gs.turn+1)%2;
   }
 }
