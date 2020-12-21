@@ -29,6 +29,7 @@ void draw() {
     fill(#FF0000, SQUARESIZE);
     rect(this.x*SQUARESIZE, this.y*SQUARESIZE, SQUARESIZE, SQUARESIZE);
   }
+
 void move(int toX, int toY) {
     AbstractKoma koma = komaList.getKomaFromPlace(toX, toY);
     if (koma==null) this.updatePos(toX, toY);
@@ -52,5 +53,15 @@ void move(int toX, int toY) {
     this.team = (this.team+1)%2;
     this.y = board.mArea[this.team].getBlankYIndex();
     this.x = board.mArea[this.team].posX;
+
   }
+  void move(int toX, int toY) {
+    this.updatePos(toX, toY);
+  }
+  void updatePos(int toX, int toY) {
+    this.x=toX;
+    this.y=toY;
+    gs.turn = (gs.turn+1)%2;
+  }
+
 }
